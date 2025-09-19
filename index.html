@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher Portfolio — Your Name</title>
+  <meta name="description" content="Simple teacher portfolio template" />
+  <style>
+    :root{
+      --bg:#f5f7fa;
+      --card:#ffffff;
+      --muted:#4b5563;
+      --accent:#2563eb;
+      --radius:14px;
+      font-family: Georgia, serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111827;
+      line-height:1.5;
+      padding:32px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+
+    .wrap{width:100%;max-width:980px}
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:48px;height:48px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;
+      font-weight:700;font-size:18px;
+    }
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
+    nav a:hover{color:var(--accent)}
+
+    main{
+      display:grid;
+      grid-template-columns:1fr 300px;
+      gap:22px;
+      align-items:start;
+    }
+
+    .card{
+      background:var(--card);
+      padding:20px;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .hero{
+      display:flex;gap:18px;align-items:center
+    }
+    .avatar{width:96px;height:96px;border-radius:50%;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700}
+    h1{margin:0;font-size:26px}
+    p.lead{color:var(--muted);margin:6px 0 0}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .tag{background:#f3f4f6;padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    section.projects{margin-top:18px}
+    .project{padding:12px;border-radius:10px;background:#f9fafb;border:1px solid #e5e7eb;margin-bottom:12px}
+    .project h3{margin:0;font-size:16px;color:var(--accent)}
+    .project p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    .side{position:sticky;top:32px}
+    .contact-list{display:flex;flex-direction:column;gap:8px}
+    .contact-list a{display:block;padding:10px;border-radius:10px;text-decoration:none;background:#f3f4f6;color:var(--muted);font-size:14px}
+
+    footer{margin-top:22px;color:var(--muted);font-size:13px}
+
+    @media (max-width:900px){
+      main{grid-template-columns:1fr;}
+      .side{position:static}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">T</div>
+        <div>
+          <div style="font-weight:700">Your Name</div>
+          <div style="font-size:13px;color:var(--muted)">Teacher • Educator</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div>
+        <article class="card hero">
+          <div class="avatar">T</div>
+          <div>
+            <h1>Hello, I'm Your Name</h1>
+            <p class="lead">Dedicated teacher with a passion for inspiring students and creating engaging learning environments.</p>
+            <div class="skills" aria-hidden>
+              <span class="tag">Mathematics</span>
+              <span class="tag">Science</span>
+              <span class="tag">Curriculum Design</span>
+              <span class="tag">Online Teaching</span>
+            </div>
+          </div>
+        </article>
+
+        <section id="experience" class="card projects">
+          <h2 style="margin-top:0">Teaching Experience</h2>
+
+          <div class="project">
+            <h3>High School Teacher</h3>
+            <p>Taught mathematics and physics to grades 9–12, incorporating modern teaching methods and technology.</p>
+          </div>
+
+          <div class="project">
+            <h3>Online Educator</h3>
+            <p>Conducted virtual classes for diverse groups of students, focusing on interactive learning and assessments.</p>
+          </div>
+
+          <div class="project">
+            <h3>Curriculum Developer</h3>
+            <p>Designed lesson plans and structured courses aligned with educational standards.</p>
+          </div>
+        </section>
+
+        <section id="about" class="card" style="margin-top:18px">
+          <h2>About Me</h2>
+          <p style="color:var(--muted)">A short paragraph about your teaching philosophy, background, and goals. Share your approach to education and how you help students succeed.</p>
+        </section>
+
+        <section id="publications" class="card" style="margin-top:18px">
+          <h2>Publications & Certifications</h2>
+          <div class="project">
+            <h3>Research Paper Title</h3>
+            <p>Published in Journal of Education, 2023 — Focused on modern teaching strategies for STEM subjects.</p>
+          </div>
+          <div class="project">
+            <h3>Certification in Online Teaching</h3>
+            <p>Completed certified program in digital education methods, 2022.</p>
+          </div>
+          <div class="project">
+            <h3>Workshop Speaker</h3>
+            <p>Presented at National Teachers’ Conference on innovative assessment techniques, 2021.</p>
+          </div>
+        </section>
+
+        <footer class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>© <strong>Your Name</strong></div>
+            <div style="color:var(--muted)">Teacher Portfolio Template</div>
+          </div>
+        </footer>
+      </div>
+
+      <aside class="side">
+        <div class="card">
+          <h3 id="contact">Contact</h3>
+          <p style="color:var(--muted);margin-top:6px">Get in touch for collaboration, teaching opportunities, or consultations.</p>
+
+          <div style="margin-top:12px" class="contact-list">
+            <a href="mailto:you@example.com">✉️ you@example.com</a>
+            <a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">💼 LinkedIn</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
