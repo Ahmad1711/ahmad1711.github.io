@@ -1,178 +1,170 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Teacher Portfolio — Your Name</title>
-  <meta name="description" content="Simple teacher portfolio template" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>محفظة المعلم — سيرة ذاتية تعليمية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f5f7fa;
+      --accent:#0B84A5;
+      --muted:#6b7280;
+      --bg:#f7fafc;
       --card:#ffffff;
-      --muted:#4b5563;
-      --accent:#2563eb;
       --radius:14px;
-      font-family: Georgia, serif;
+      --max-w:1000px;
+      font-family: 'Cairo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:#111827;
-      line-height:1.5;
-      padding:32px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-    }
+    body{margin:0;background:var(--bg);color:#111827;line-height:1.6}
+    .container{max-width:var(--max-w);margin:28px auto;padding:20px}
 
-    .wrap{width:100%;max-width:980px}
+    /* layout */
+    .grid{display:grid;grid-template-columns:320px 1fr;gap:20px}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:28px;
-    }
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:48px;height:48px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;
-      font-weight:700;font-size:18px;
-    }
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
-    nav a:hover{color:var(--accent)}
+    /* sidebar card */
+    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:0 6px 18px rgba(10,10,10,0.06)}
+    .avatar{width:120px;height:120px;border-radius:50%;overflow:hidden;margin-left:auto;margin-right:auto;display:block}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    h1{font-size:22px;margin:12px 0 4px;text-align:center}
+    .meta{text-align:center;color:var(--muted);font-size:14px}
 
-    main{
-      display:grid;
-      grid-template-columns:1fr 300px;
-      gap:22px;
-      align-items:start;
-    }
-
-    .card{
-      background:var(--card);
-      padding:20px;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .hero{
-      display:flex;gap:18px;align-items:center
-    }
-    .avatar{width:96px;height:96px;border-radius:50%;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700}
-    h1{margin:0;font-size:26px}
-    p.lead{color:var(--muted);margin:6px 0 0}
+    .contact{margin-top:18px}
+    .contact-item{display:flex;justify-content:space-between;padding:8px 0;border-top:1px dashed #eef2f7;color:var(--muted);font-size:14px}
 
     .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .tag{background:#f3f4f6;padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .skill{background:#f1f5f9;padding:6px 10px;border-radius:999px;font-size:13px}
 
-    section.projects{margin-top:18px}
-    .project{padding:12px;border-radius:10px;background:#f9fafb;border:1px solid #e5e7eb;margin-bottom:12px}
-    .project h3{margin:0;font-size:16px;color:var(--accent)}
-    .project p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    /* main */
+    .section{margin-bottom:18px}
+    .section h2{display:flex;align-items:center;gap:10px;font-size:16px;margin:0 0 12px}
+    .bio{white-space:pre-line}
 
-    .side{position:sticky;top:32px}
-    .contact-list{display:flex;flex-direction:column;gap:8px}
-    .contact-list a{display:block;padding:10px;border-radius:10px;text-decoration:none;background:#f3f4f6;color:var(--muted);font-size:14px}
+    /* timeline / list */
+    .timeline{border-right:3px solid #f1f5f9;padding-right:14px}
+    .item{margin-bottom:14px}
+    .item .title{font-weight:600}
+    .item .sub{color:var(--muted);font-size:13px}
 
-    footer{margin-top:22px;color:var(--muted);font-size:13px}
+    /* courses grid */
+    .courses{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .course{background:#fbfeff;padding:12px;border-radius:10px;border:1px solid #f0f7fa}
+    .course h3{margin:0 0 6px;font-size:15px}
+    .course p{margin:0;color:var(--muted);font-size:13px}
 
-    @media (max-width:900px){
-      main{grid-template-columns:1fr;}
-      .side{position:static}
+    /* gallery */
+    .gallery{display:flex;flex-wrap:wrap;gap:8px}
+    .gallery img{width:calc(33% - 5px);border-radius:8px;object-fit:cover}
+    @media (max-width:600px){.gallery img{width:calc(50% - 6px)}}
+
+    /* footer / contact form */
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:white;text-decoration:none}
+
+    /* print styles */
+    @media print{
+      body{background:white}
+      .container{box-shadow:none;margin:0;padding:0}
+      .grid{grid-template-columns:1fr}
+      .avatar{width:96px;height:96px}
     }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .right{float:right}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">R</div>
-        <div>
-          <div style="font-weight:700">Rama Abo Obeid</div>
-          <div style="font-size:13px;color:var(--muted)">Online Teacher</div>
+  <div class="container">
+    <div class="grid">
+      <!-- SIDEBAR -->
+      <aside class="card" aria-label="معلومات المعلم">
+        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80&auto=format&fit=crop" alt="الصورة الشخصية">
+        <h1>د. أسماء الأحمد</h1>
+        <div class="meta">معلمة لغة عربية — مدرسة ثانوي | 10+ سنوات خبرة</div>
+
+        <div class="contact">
+          <div class="contact-item"><span>البريد الإلكتروني</span><span class="muted">asmaah@example.com</span></div>
+          <div class="contact-item"><span>الهاتف</span><span class="muted">+966 5X XXX XXXX</span></div>
+          <div class="contact-item"><span>الموقع</span><span class="muted">www.asmaah-edu.com</span></div>
+          <div class="contact-item"><span>المدينة</span><span class="muted">الرياض، المملكة العربية السعودية</span></div>
         </div>
-      </div>
-      <nav>
-        <a href="#experience">Experience</a>
-        <a href="#about">About</a>
-        <a href="#publications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main>
-      <div>
-        <article class="card hero">
-          <div class="avatar">R</div>
-          <div>
-            <h1>Hello, I'm Rama Abo Obeid</h1>
-            <p class="lead">I am Rama Abu Obeid. I work as a private teacher for students at home, from first grade to sixth grade, for all subjects, In addition to teaching French to seventh and eighth graders, I have more than two years of experience.</p>
-            <!-- <div class="skills" aria-hidden>
-              <span class="tag">Mathematics</span>
-              <span class="tag">Science</span>
-              <span class="tag">ِArabic</span>
-              <span class="tag">Online Teaching</span>
-            </div> -->
+        <div style="margin-top:14px">
+          <strong>المهارات</strong>
+          <div class="skills">
+            <span class="skill">تصميم مناهج</span>
+            <span class="skill">إدارة الصف</span>
+            <span class="skill">التقويم التكويني</span>
+            <span class="skill">تكنولوجيا التعليم</span>
           </div>
-        </article>
+        </div>
 
-        <section id="experience" class="card projects">
-          <h2 style="margin-top:0">Teaching Experience</h2>
-
-          <div class="project">
-            <h3>French language teacher</h3>
-            <p>Teaching French to seventh and eighth grade students</p>
-          </div>
-
-          <div class="project">
-            <h3>Online Teacher</h3>
-            <p>Follow-up of all subjects for students from first to sixth grade</p>
-          </div>
-
-        </section>
-
-        <section id="about" class="card" style="margin-top:18px">
-          <h2>About Me</h2>
-          <p style="color:var(--muted)">A short paragraph about your teaching philosophy, background, and goals. Share your approach to education and how you help students succeed.</p>
-        </section>
-
-        <section id="publications" class="card" style="margin-top:18px">
-          <h2>Publications & Certifications</h2>
-          <div class="project">
-            <h3>Research Paper Title</h3>
-            <p>Published in Journal of Education, 2023 — Focused on modern teaching strategies for STEM subjects.</p>
-          </div>
-          <div class="project">
-            <h3>Certification in Online Teaching</h3>
-            <p>Completed certified program in digital education methods, 2022.</p>
-          </div>
-          <div class="project">
-            <h3>Workshop Speaker</h3>
-            <p>Presented at National Teachers’ Conference on innovative assessment techniques, 2021.</p>
-          </div>
-        </section>
-
-        <footer class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>© <strong>Your Name</strong></div>
-            <div style="color:var(--muted)">Teacher Portfolio Template</div>
-          </div>
-        </footer>
-      </div>
-
-      <aside class="side">
-        <div class="card">
-          <h3 id="contact">Contact</h3>
-          <p style="color:var(--muted);margin-top:6px">Get in touch for collaboration, teaching opportunities, or consultations.</p>
-
-          <div style="margin-top:12px" class="contact-list">
-            <a href="mailto:you@example.com">✉️ you@example.com</a>
-            <a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">💼 LinkedIn</a>
-          </div>
+        <div style="margin-top:18px;text-align:center">
+          <a class="btn" href="#contact">تواصل معي</a>
         </div>
       </aside>
-    </main>
+
+      <!-- MAIN CONTENT -->
+      <main>
+        <section class="card section">
+          <h2>نبذة عني</h2>
+          <p class="bio">معلمة متحمسة للغة العربية وتهدف إلى بناء بيئة صفية تفاعلية تزرع حب القراءة والكتابة. لدي خبرة في تصميم وحدات تعلم مرتكزة على الطالب وتوظيف التقنية لرفع مستوى التفاعل والتقييم. أؤمن بالتعلم المستمر وبأن كل طالب قادر على التفوق بمجرد توفير الأدوات المناسبة.</p>
+        </section>
+
+        <section class="card section">
+          <h2>التعليم والخبرة</h2>
+          <div class="timeline">
+            <div class="item">
+              <div class="title">دكتوراة في التربية اللغوية — جامعة الملك سعود</div>
+              <div class="sub">2016 — 2020</div>
+            </div>
+            <div class="item">
+              <div class="title">مديرة مواد اللغة العربية — مدرسة البيان الثانوية</div>
+              <div class="sub">2018 — الآن</div>
+            </div>
+            <div class="item">
+              <div class="title">مشرفة تربوية — وزارة التعليم (برنامج تطوير المناهج)</div>
+              <div class="sub">2014 — 2018</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>منهجية التدريس</h2>
+          <p class="muted">أستخدم أساليب تعليمية تفاعلية: التعلم القائم على المشروع، التقييم التكويني المتكرر، وورش العمل الصغيرة. أدمج موارد رقمية وأنشطة تعاونية لتنمية المهارات اللغوية الأربع: قراءة، كتابة، استماع، ومحادثة.</p>
+        </section>
+
+        <section class="card section">
+          <h2>الدورات التي أدرسها</h2>
+          <div class="courses">
+            <div class="course"><h3>أدب ونصوص</h3><p>تحليل نصوص من الشعر والنثر، التفكير النقدي</p></div>
+            <div class="course"><h3>الكتابة الأكاديمية</h3><p>بناء الفكرة، البحث، وصياغة المقالات</p></div>
+            <div class="course"><h3>مهارات العرض</h3><p>أساليب العرض والتقديم، استخدام الوسائط</p></div>
+            <div class="course"><h3>الإملاء والتراكيب</h3><p>قواعد اللغة العربية وتدريبات تطبيقية</p></div>
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>معرض الأنشطة</h2>
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=800&q=60&auto=format&fit=crop" alt="نشاط صف">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=60&auto=format&fit=crop" alt="ورشة عمل">
+            <img src="https://images.unsplash.com/photo-1529336953121-8a8f3b7d20d1?w=800&q=60&auto=format&fit=crop" alt="مشروع طلابي">
+          </div>
+        </section>
+
+        <section id="contact" class="card section">
+          <h2>تواصل</h2>
+          <p class="muted">للاستفسارات أو دعوة لإلقاء محاضرة تواصل عبر البريد الإلكتروني أو الهاتف.</p>
+          <p style="margin-top:12px"><strong>البريد:</strong> asmaah@example.com<br><strong>هاتف:</strong> +966 5X XXX XXXX</p>
+          <p style="margin-top:12px"><a class="btn" href="mailto:asmaah@example.com">أرسل بريدًا</a></p>
+        </section>
+
+      </main>
+    </div>
+
+    <footer style="text-align:center;margin-top:18px;color:var(--muted);font-size:13px">© 2025 د. أسماء الأحمد — محفظة المعلم</footer>
   </div>
 </body>
 </html>
