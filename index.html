@@ -62,6 +62,39 @@
     /* الأسهم للخارج */
     .prev{position:absolute;top:50%;transform:translateY(-50%);font-size:48px;color:#fff;cursor:pointer;font-weight:bold;padding:10px;right:20px;z-index:1010}
     .next{position:absolute;top:50%;transform:translateY(-50%);font-size:48px;color:#fff;cursor:pointer;font-weight:bold;padding:10px;left:20px;z-index:1010}
+
+
+    .certificates{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:16px;
+    }
+    .certificate{
+      background:#fbfeff;
+      border:1px solid #f0f7fa;
+      border-radius:10px;
+      padding:12px;
+      text-align:center;
+    }
+    .certificate h3{
+      font-size:15px;
+      margin:0 0 6px;
+    }
+    .certificate p{
+      font-size:13px;
+      margin:0 0 10px;
+      color:var(--muted);
+    }
+    .certificate img{
+      width:100%;
+      border-radius:8px;
+      cursor:pointer;
+      transition:transform 0.3s;
+    }
+    .certificate img:hover{
+      transform:scale(1.05);
+    }
+    
   </style>
 </head>
 <body>
@@ -115,6 +148,20 @@
                 <img src="images/3.jpeg" alt="مشروع طلابي">
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- قسم الشهادات -->
+        <section class="card section">
+          <h2><i class="fas fa-certificate"></i> الشهادات</h2>
+          <div class="certificates">
+            
+            <div class="certificate">
+              <h3>شهادة فرانكفونية في تعليم قواعد اللغة الفرنسية</h3>
+              <p class="muted">جامعة حمص — 2015</p>
+              <img src="images/cert1.jpeg" alt="شهادة فرانكفونية" />
+            </div>
+
           </div>
         </section>
       </main>
