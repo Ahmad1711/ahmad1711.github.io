@@ -3,114 +3,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>محفظة المعلم — سيرة ذاتية تعليمية</title>
+  <title>محفظة المعلم — أ. راما أبو عبيد</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     :root{
       --accent:#0B84A5;
       --accent-hover:#0D95B8;
       --muted:#6b7280;
-      --bg:#f7fafc;
+      --bg:#f0f4f8;
       --card:#ffffff;
-      --radius:14px;
-      --max-w:1000px;
+      --radius:16px;
+      --max-w:1100px;
       font-family: 'Cairo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:#111827;line-height:1.6;transition:background 0.3s ease}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:#111827;line-height:1.6;scroll-behavior:smooth}
+    a{text-decoration:none;color:inherit}
+
     .container{max-width:var(--max-w);margin:28px auto;padding:20px}
 
-    /* layout */
-    .grid{display:grid;grid-template-columns:320px 1fr;gap:20px}
+    /* grid layout */
+    .grid{display:grid;grid-template-columns:320px 1fr;gap:24px}
     @media (max-width:880px){.grid{grid-template-columns:1fr}}
 
-    /* sidebar card */
-    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:0 6px 18px rgba(10,10,10,0.06);transition:all 0.3s ease}
-    .card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.12)}
-    .avatar{width:120px;height:120px;border-radius:50%;overflow:hidden;margin-left:auto;margin-right:auto;display:block;transition:transform 0.3s ease}
-    .avatar:hover{transform:scale(1.05)}
+    /* card styling */
+    .card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:0 8px 24px rgba(0,0,0,0.08);transition:all 0.3s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.12)}
+
+    /* sidebar */
+    .sidebar{text-align:center}
+    .avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;margin:0 auto 12px;transition:transform 0.3s ease}
     .avatar img{width:100%;height:100%;object-fit:cover}
-    h1{font-size:22px;margin:12px 0 4px;text-align:center}
-    .meta{text-align:center;color:var(--muted);font-size:14px}
+    .avatar:hover{transform:scale(1.05)}
+    h1{font-size:24px;margin-bottom:6px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:16px}
 
-    .contact{margin-top:18px}
     .contact-item{display:flex;justify-content:space-between;padding:8px 0;border-top:1px dashed #eef2f7;color:var(--muted);font-size:14px}
-
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .skill{background:#f1f5f9;padding:6px 10px;border-radius:999px;font-size:13px;transition:all 0.3s ease}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center}
+    .skill{background:#f1f5f9;padding:6px 12px;border-radius:999px;font-size:13px;transition:all 0.3s ease}
     .skill:hover{background:var(--accent);color:#fff}
 
-    /* main */
-    .section{margin-bottom:18px}
-    .section h2{display:flex;align-items:center;gap:10px;font-size:18px;margin:0 0 12px;color:var(--accent)}
-    .bio{white-space:pre-line}
+    .btn{display:inline-block;padding:10px 18px;border-radius:10px;background:var(--accent);color:white;transition:background 0.3s ease;margin-top:14px}
+    .btn:hover{background:var(--accent-hover)}
 
-    /* timeline / list */
-    .timeline{border-right:3px solid #f1f5f9;padding-right:14px}
-    .item{margin-bottom:20px;transition:all 0.3s ease}
+    /* main content */
+    .section{margin-bottom:24px}
+    .section h2{font-size:18px;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .bio{white-space:pre-line;color:#333}
+
+    /* timeline */
+    .timeline{border-right:3px solid #f1f5f9;padding-right:14px;position:relative}
+    .timeline::before{content:"";position:absolute;right:-9px;top:0;bottom:0;width:6px;background:var(--accent);border-radius:3px}
+    .item{margin-bottom:24px;position:relative;transition:all 0.3s ease}
+    .item::before{content:"";position:absolute;right:-20px;top:0;width:12px;height:12px;background:var(--accent);border-radius:50%;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,0.1)}
     .item:hover{transform:translateX(-5px)}
-    .item .title{font-weight:600}
+    .item .title{font-weight:600;margin-bottom:4px}
     .item .sub{color:var(--muted);font-size:13px;margin-bottom:8px}
 
     /* gallery */
-    .gallery{display:flex;flex-wrap:wrap;gap:8px}
-    .gallery img{width:calc(33% - 5px);border-radius:8px;object-fit:cover;transition:transform 0.3s ease, box-shadow 0.3s ease}
-    .gallery img:hover{transform:scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,0.15)}
-    @media (max-width:600px){.gallery img{width:calc(50% - 6px)}}
+    .gallery{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .gallery img{width:calc(33% - 8px);border-radius:12px;object-fit:cover;transition:all 0.3s ease;cursor:pointer}
+    .gallery img:hover{transform:scale(1.05);box-shadow:0 12px 24px rgba(0,0,0,0.15)}
+    @media(max-width:600px){.gallery img{width:calc(50% - 6px)}}
 
-    /* footer / contact form */
-    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;transition:background 0.3s ease}
-    .btn:hover{background:var(--accent-hover)}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
 
-    /* print styles */
-    @media print{
-      body{background:white}
-      .container{box-shadow:none;margin:0;padding:0}
-      .grid{grid-template-columns:1fr}
-      .avatar{width:96px;height:96px}
-    }
-
-    /* small helpers */
-    .muted{color:var(--muted)}
-    .right{float:right}
   </style>
 </head>
 <body>
   <div class="container">
     <div class="grid">
       <!-- SIDEBAR -->
-      <aside class="card" aria-label="معلومات المعلم">
-        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80&auto=format&fit=crop" alt="الصورة الشخصية">
+      <aside class="card sidebar">
+        <div class="avatar">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80&auto=format&fit=crop" alt="الصورة الشخصية">
+        </div>
         <h1>أ. راما أبو عبيد</h1>
         <div class="meta">معلمة لغة فرنسية — متابعة طلاب ابتدائي | 7+ سنوات خبرة</div>
 
-        <div class="contact">
-          <div class="contact-item"><span>الهاتف</span><span class="muted">+963 935449869</span></div>
-          <div class="contact-item"><span>المدينة</span><span class="muted">سوريا - حمص</span></div>
+        <div class="contact-item"><span><i class="fas fa-phone"></i> الهاتف</span><span class="muted">+963 935449869</span></div>
+        <div class="contact-item"><span><i class="fas fa-map-marker-alt"></i> المدينة</span><span class="muted">حمص - سوريا</span></div>
+
+        <div class="skills">
+          <span class="skill"><i class="fas fa-book-open"></i> متابعة طلاب ابتدائي</span>
+          <span class="skill"><i class="fas fa-laptop"></i> تعليم عن بعد</span>
+          <span class="skill"><i class="fas fa-language"></i> تعليم لغة فرنسية</span>
         </div>
 
-        <div style="margin-top:14px">
-          <strong>المهارات</strong>
-          <div class="skills">
-            <span class="skill">متابعة طلاب ابتدائي من الصف الاول الى الصف السادس </span>
-            <span class="skill">تعليم عن بعد</span>
-            <span class="skill">تعليم لغة فرنسية لجميع المراحل </span>
-          </div>
-        </div>
+        <a href="#contact" class="btn"><i class="fas fa-envelope"></i> تواصل معي</a>
       </aside>
 
       <!-- MAIN CONTENT -->
       <main>
         <section class="card section">
           <h2>نبذة عني</h2>
-          <p class="bio">معلمة لغة فرنسية بخبرة 7 سنوات لجميع المراحل , اعمل ايضا على متابعة الطلاب من الصف الاول حتى الصف السادس  لجميع المواد</p>
+          <p class="bio">معلمة لغة فرنسية بخبرة 7 سنوات لجميع المراحل، أعمل أيضًا على متابعة الطلاب من الصف الأول حتى الصف السادس لجميع المواد التعليمية.</p>
         </section>
 
         <section class="card section">
           <h2>التعليم والخبرة</h2>
           <div class="timeline">
             <div class="item">
-              <div class="title">معلمة لغة فرنسية في مدرسة ماجد منصور - حمص  - </div>
+              <div class="title">معلمة لغة فرنسية في مدرسة ماجد منصور - حمص</div>
               <div class="sub">2017 — 2019</div>
             </div>
             <div class="item">
@@ -122,21 +117,28 @@
               <div class="sub">2023 — 2025</div>
             </div>
             <div class="item">
-              <div class="title">متابعة طلاب ابتدائي في المنزل عن بعد حتى الوقت الحالي - حمص</div>
-              <div class="sub">2023 — 2025</div>
-              <!-- Gallery inside last timeline item -->
-              <div class="gallery" style="margin-top:12px">
+              <div class="title">متابعة طلاب ابتدائي عن بعد</div>
+              <div class="sub">2023 — حتى الآن</div>
+              <div class="gallery">
                 <img src="images/1.jpeg" alt="درس اونلاين">
-                <img src="images/2.jpeg" alt="درس اونلاين">
-                <img src="images/3.jpeg" alt="درس اونلاين">
+                <img src="images/2.jpeg" alt="ورشة عمل">
+                <img src="images/3.jpeg" alt="مشروع طلابي">
               </div>
             </div>
           </div>
         </section>
+
+        <section id="contact" class="card section">
+          <h2>تواصل معي</h2>
+          <p class="muted">للاستفسارات أو دعوة لإلقاء محاضرة، يمكنك التواصل عبر البريد الإلكتروني أو الهاتف.</p>
+          <p style="margin-top:12px"><strong>البريد:</strong> asmaah@example.com<br><strong>هاتف:</strong> +963 935449869</p>
+          <a class="btn" href="mailto:asmaah@example.com"><i class="fas fa-envelope"></i> أرسل بريدًا</a>
+        </section>
+
       </main>
     </div>
 
-    <footer style="text-align:center;margin-top:18px;color:var(--muted);font-size:13px">© 2025 أ. راما أبو عبيد</footer>
+    <footer>© 2025 أ. راما أبو عبيد</footer>
   </div>
 </body>
 </html>
