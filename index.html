@@ -60,8 +60,8 @@
     #lightbox img{max-width:90%;max-height:80%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
     #close{position:absolute;top:20px;right:30px;font-size:36px;color:#fff;cursor:pointer;font-weight:bold;z-index:1010}
     .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:48px;color:#fff;cursor:pointer;font-weight:bold;padding:10px;user-select:none;z-index:1010}
-    .prev{left:20px}
-    .next{right:20px}
+    .prev{right:auto; left:20px} /* السهم السابق على اليسار */
+    .next{left:auto; right:20px} /* السهم التالي على اليمين */
   </style>
 </head>
 <body>
@@ -126,8 +126,8 @@
   <!-- Lightbox -->
   <div id="lightbox">
     <span id="close">&times;</span>
-    <span class="nav prev">&#10096;</span> <!-- سهم للخارج لليسار -->
-    <span class="nav next">&#10097;</span> <!-- سهم للخارج لليمين -->
+    <span class="nav prev">&#10094;</span> <!-- ← السهم السابق -->
+    <span class="nav next">&#10095;</span> <!-- → السهم التالي -->  
     <img src="" alt="">
   </div>
 
