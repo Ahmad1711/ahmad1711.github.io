@@ -20,61 +20,47 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{background:var(--bg);color:#111827;line-height:1.6;scroll-behavior:smooth}
     a{text-decoration:none;color:inherit}
-
     .container{max-width:var(--max-w);margin:28px auto;padding:20px}
-
-    /* grid layout */
     .grid{display:grid;grid-template-columns:320px 1fr;gap:24px}
     @media (max-width:880px){.grid{grid-template-columns:1fr}}
-
-    /* card styling */
     .card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:0 8px 24px rgba(0,0,0,0.08);transition:all 0.3s ease}
     .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.12)}
-
-    /* sidebar */
     .sidebar{text-align:center}
     .avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;margin:0 auto 12px;transition:transform 0.3s ease}
     .avatar img{width:100%;height:100%;object-fit:cover}
     .avatar:hover{transform:scale(1.05)}
     h1{font-size:24px;margin-bottom:6px}
-    .meta{color:var(--muted);font-size:14px;margin-bottom:16px}
-
-    .contact-item{display:flex;justify-content:space-between;padding:8px 0;border-top:1px dashed #eef2f7;color:var(--muted);font-size:14px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:4px}
+    .experience{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:16px}
+    .contact-item{display:flex;justify-content:space-between;padding:8px 0;border-top:1px dashed #eef2f7;color:var(--muted);font-size:14px;align-items:center}
+    .contact-item i{margin-left:6px}
     .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center}
-    .skill{background:#f1f5f9;padding:6px 12px;border-radius:999px;font-size:13px;transition:all 0.3s ease}
+    .skill{background:#f1f5f9;padding:6px 12px;border-radius:999px;font-size:13px;transition:all 0.3s ease;display:flex;align-items:center;gap:6px}
     .skill:hover{background:var(--accent);color:#fff}
-
     .btn{display:inline-block;padding:10px 18px;border-radius:10px;background:var(--accent);color:white;transition:background 0.3s ease;margin-top:14px}
     .btn:hover{background:var(--accent-hover)}
-
-    /* main content */
     .section{margin-bottom:24px}
     .section h2{font-size:18px;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:8px}
     .bio{white-space:pre-line;color:#333}
-
-    /* timeline */
     .timeline{border-right:3px solid #f1f5f9;padding-right:14px;position:relative}
     .timeline::before{content:"";position:absolute;right:-9px;top:0;bottom:0;width:6px;background:var(--accent);border-radius:3px}
     .item{margin-bottom:24px;position:relative;transition:all 0.3s ease}
     .item::before{content:"";position:absolute;right:-20px;top:0;width:12px;height:12px;background:var(--accent);border-radius:50%;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,0.1)}
     .item:hover{transform:translateX(-5px)}
-    .item .title{font-weight:600;margin-bottom:4px}
-    .item .sub{color:var(--muted);font-size:13px;margin-bottom:8px}
-
-    /* gallery */
+    .item .title{font-weight:600;margin-bottom:4px;font-size:15px}
+    .item .sub{color:var(--muted);font-size:13px;margin-top:2px;margin-bottom:8px}
     .gallery{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
     .gallery img{width:calc(33% - 8px);border-radius:12px;object-fit:cover;transition:all 0.3s ease;cursor:pointer}
     .gallery img:hover{transform:scale(1.05);box-shadow:0 12px 24px rgba(0,0,0,0.15)}
     @media(max-width:600px){.gallery img{width:calc(50% - 6px)}}
-
     footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
 
-    .experience{
-      font-size:14px;
-      color:var(--accent);
-      font-weight:600;
-    }
-
+    /* Lightbox */
+    #lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:none;justify-content:center;align-items:center;z-index:1000}
+    #lightbox img{max-width:90%;max-height:80%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
+    #lightbox span{position:absolute;top:20px;right:30px;font-size:28px;color:#fff;cursor:pointer;font-weight:bold}
+    #lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:#fff;cursor:pointer;font-weight:bold;padding:10px}
+    #lightbox .prev{left:20px} #lightbox .next{right:20px}
   </style>
 </head>
 <body>
@@ -87,21 +73,14 @@
         </div>
         <h1>أ. راما أبو عبيد</h1>
         <div class="meta">معلمة لغة فرنسية — متابعة طلاب ابتدائي</div>
-        <div class="experience" style="text-align:center;color:var(--accent);font-weight:600;margin-top:4px;">
-          7+ سنوات خبرة
-        </div>
-
-
+        <div class="experience">7+ سنوات خبرة</div>
         <div class="contact-item"><span><i class="fas fa-phone"></i> الهاتف</span><span class="muted">+963 935449869</span></div>
         <div class="contact-item"><span><i class="fas fa-map-marker-alt"></i> المدينة</span><span class="muted">حمص - سوريا</span></div>
-
         <div class="skills">
           <span class="skill"><i class="fas fa-book-open"></i> متابعة طلاب ابتدائي</span>
           <span class="skill"><i class="fas fa-laptop"></i> تعليم عن بعد</span>
           <span class="skill"><i class="fas fa-language"></i> تعليم لغة فرنسية</span>
         </div>
-
-        <!-- <a href="#contact" class="btn"><i class="fas fa-envelope"></i> تواصل معي</a> -->
       </aside>
 
       <!-- MAIN CONTENT -->
@@ -137,18 +116,45 @@
             </div>
           </div>
         </section>
-
-        <!-- <section id="contact" class="card section">
-          <h2>تواصل معي</h2>
-          <p class="muted">للاستفسارات أو دعوة لإلقاء محاضرة، يمكنك التواصل عبر البريد الإلكتروني أو الهاتف.</p>
-          <p style="margin-top:12px"><strong>البريد:</strong> asmaah@example.com<br><strong>هاتف:</strong> +963 935449869</p>
-          <a class="btn" href="mailto:asmaah@example.com"><i class="fas fa-envelope"></i> أرسل بريدًا</a>
-        </section> -->
-
       </main>
     </div>
 
     <footer>© 2025 أ. راما أبو عبيد</footer>
   </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span id="close">&times;</span>
+    <span class="nav prev">&#10094;</span>
+    <span class="nav next">&#10095;</span>
+    <img src="" alt="">
+  </div>
+
+  <script>
+    const galleryImgs = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = lightbox.querySelector('img');
+    const closeBtn = document.getElementById('close');
+    const prevBtn = lightbox.querySelector('.prev');
+    const nextBtn = lightbox.querySelector('.next');
+
+    let currentIndex = 0;
+
+    const images = Array.from(galleryImgs).map(img => img.src);
+
+    function showLightbox(index){
+      lbImg.src = images[index];
+      lightbox.style.display = 'flex';
+      currentIndex = index;
+    }
+
+    galleryImgs.forEach((img,i)=> img.addEventListener('click',()=> showLightbox(i)));
+
+    closeBtn.onclick = ()=> lightbox.style.display = 'none';
+    lightbox.onclick = e => { if(e.target===lightbox) lightbox.style.display='none'; }
+
+    prevBtn.onclick = e => { e.stopPropagation(); currentIndex=(currentIndex-1+images.length)%images.length; lbImg.src=images[currentIndex]; }
+    nextBtn.onclick = e => { e.stopPropagation(); currentIndex=(currentIndex+1)%images.length; lbImg.src=images[currentIndex]; }
+  </script>
 </body>
 </html>
